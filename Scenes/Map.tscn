@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3rm1shkx7rt0"]
+
+[ext_resource type="PackedScene" uid="uid://dfdvop64n8fuh" path="res://Scenes/Player.tscn" id="1_w1w5f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ugw50"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohv27"]
+size = Vector2(531, 32)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jlgrn"]
+
+[node name="Map" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(588, 426)
+physics_material_override = SubResource("PhysicsMaterial_ugw50")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(9.5, 0)
+shape = SubResource("RectangleShape2D_ohv27")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(-0.5, 0)
+scale = Vector2(1.03516, 0.0625001)
+texture = SubResource("NoiseTexture2D_jlgrn")
+
+[node name="Player" parent="." instance=ExtResource("1_w1w5f")]
+position = Vector2(604, 318)
